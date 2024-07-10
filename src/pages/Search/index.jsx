@@ -86,15 +86,20 @@ const Search = () => {
               <>
                 <h2>Resultado de álbuns de: {artistName}</h2>
                 <C.CardList>
-                  {artistAlbum.map((music) => (
-                    <Link
-                      to="/"
-                      key={music.collectionId}
-                      data-testid={`link-to-album-${music.collectionId}`}
-                    >
-                      <CardMusic music={music} />
-                    </Link>
-                  ))}
+                  {artistAlbum.map((music) => {
+                    // console.log(music);
+                    return (
+                        <Link
+                          to={`/album/${music.collectionId}`}
+                          key={music.collectionId}
+                          data-testid={`link-to-album-${music.collectionId}`}
+                        >
+                          <CardMusic music={music} />
+                        </Link>
+                    )    
+                  }
+                  
+                  )}
                 </C.CardList>
               </>
             )}
